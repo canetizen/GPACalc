@@ -74,7 +74,7 @@ public class frame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "", "AD", "KREDİ", "HARF NOTU"
+                "", "NAME", "CREDITS", "LETTER GRADE"
             }
         ) {
             Class[] types = new Class [] {
@@ -104,29 +104,29 @@ public class frame extends javax.swing.JFrame {
         }
 
         lblAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblAdd.setText("Ders ekle:");
+        lblAdd.setText("Add course:");
 
-        lblCode.setText("Adı:");
+        lblCode.setText("Name:");
 
-        lblCredit.setText("Kredisi:");
+        lblCredit.setText("Credits:");
 
-        lblLetter.setText("Harf Notu:");
+        lblLetter.setText("Letter grade:");
 
-        btnAdd.setText("Ekle");
+        btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnDeleteSelected.setText("Seçili Olanı Sil");
+        btnDeleteSelected.setText("Delete selected");
         btnDeleteSelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteSelectedActionPerformed(evt);
             }
         });
 
-        btnDeleteAll.setText("Tümünü Sil");
+        btnDeleteAll.setText("Delete all");
         btnDeleteAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteAllActionPerformed(evt);
@@ -134,20 +134,22 @@ public class frame extends javax.swing.JFrame {
         });
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setText("ORTALAMA HESAPLAMA ARACI");
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("GPA CALCULATE TOOL");
+        lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btnTerm.setText("Dönem Ortalaması Hesapla");
+        btnTerm.setText("GPA Calculate");
         btnTerm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTermActionPerformed(evt);
             }
         });
 
-        lblPreviousCredit.setText("Önceki Kredi:");
+        lblPreviousCredit.setText("Previous Credits:");
 
-        lblPreviousAvg.setText("Önceki Ortalama:");
+        lblPreviousAvg.setText("Previous CGPA:");
 
-        btnOverall.setText("Genel Ortalama Hesapla");
+        btnOverall.setText("CGPA Calculate");
         btnOverall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOverallActionPerformed(evt);
@@ -161,16 +163,13 @@ public class frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(btnTerm)
-                        .addGap(49, 49, 49)
+                        .addComponent(btnTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -208,7 +207,8 @@ public class frame extends javax.swing.JFrame {
                                         .addComponent(lblAdd)
                                         .addGap(375, 375, 375)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(37, 37, 37))
+                .addGap(37, 42, Short.MAX_VALUE))
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +255,7 @@ public class frame extends javax.swing.JFrame {
         try {
             String letter = txtLetter.getText().toUpperCase();
             if (!checkLetter(letter, converter)) {
-                lblResult.setText("Lütfen geçerli bir harf notu giriniz.");
+                lblResult.setText("Enter a valid letter grade.");
                 return;
             }
             
@@ -267,7 +267,7 @@ public class frame extends javax.swing.JFrame {
             txtCredit.setText("");
             index++;
         } catch(Exception e) {
-            lblResult.setText("Lütfen geçerli bir kredi değeri giriniz.");
+            lblResult.setText("Enter a valid credits.");
         } 
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -295,18 +295,18 @@ public class frame extends javax.swing.JFrame {
     }
     private void btnTermActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTermActionPerformed
         if (model.getRowCount() == 0) {
-            lblResult.setText("Liste boş, lütfen ders ekleyin.");
+            lblResult.setText("List is empty. add course.");
             return;
         }
         double[] arr = termCalculate();
         double total = arr[0] / arr[1];
-        lblResult.setText("Dönem ortalaması: " + String.format("%.2f", total));
+        lblResult.setText("GPA is: " + String.format("%.2f", total));
         arr = null;
     }//GEN-LAST:event_btnTermActionPerformed
 
     private void btnOverallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOverallActionPerformed
         if (model.getRowCount() == 0) {
-            lblResult.setText("Liste boş, lütfen ders ekleyin.");
+            lblResult.setText("List is empty. add course.");
             return;
         }
         try {
@@ -314,10 +314,10 @@ public class frame extends javax.swing.JFrame {
             double weight = Double.parseDouble(txtPreviousAvg.getText()) * credit;
             double[] arr = termCalculate();
             double result = (weight + arr[0]) / (arr[1] + credit);
-            lblResult.setText("Genel ortalama: " + String.format("%.2f", result));
+            lblResult.setText("CGPA is: " + String.format("%.2f", result));
             arr = null;
         } catch(Exception e) {
-            lblResult.setText("Geçerli değerler giriniz.");
+            lblResult.setText("Enter valid values.");
         }
     }//GEN-LAST:event_btnOverallActionPerformed
 

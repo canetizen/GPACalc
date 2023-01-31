@@ -23,17 +23,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblResult" max="32767" attributes="0"/>
+          <Component id="lblResult" pref="529" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                      <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="btnTerm" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="btnTerm" min="-2" pref="145" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -84,8 +80,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="37" pref="42" max="32767" attributes="0"/>
           </Group>
+          <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -145,9 +142,9 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
                 <Column editable="false" title="" type="java.lang.Integer"/>
-                <Column editable="false" title="AD" type="java.lang.String"/>
-                <Column editable="false" title="KRED&#x130;" type="java.lang.Double"/>
-                <Column editable="false" title="HARF NOTU" type="java.lang.String"/>
+                <Column editable="false" title="NAME" type="java.lang.String"/>
+                <Column editable="false" title="CREDITS" type="java.lang.Double"/>
+                <Column editable="false" title="LETTER GRADE" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -186,33 +183,33 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ders ekle:"/>
+        <Property name="text" type="java.lang.String" value="Add course:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCode">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ad&#x131;:"/>
+        <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCode">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCredit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kredisi:"/>
+        <Property name="text" type="java.lang.String" value="Credits:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCredit">
     </Component>
     <Component class="javax.swing.JLabel" name="lblLetter">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Harf Notu:"/>
+        <Property name="text" type="java.lang.String" value="Letter grade:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLetter">
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ekle"/>
+        <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
@@ -220,7 +217,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteSelected">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Se&#xe7;ili Olan&#x131; Sil"/>
+        <Property name="text" type="java.lang.String" value="Delete selected"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteSelectedActionPerformed"/>
@@ -228,7 +225,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteAll">
       <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xfc;m&#xfc;n&#xfc; Sil"/>
+        <Property name="text" type="java.lang.String" value="Delete all"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteAllActionPerformed"/>
@@ -239,12 +236,14 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="ORTALAMA HESAPLAMA ARACI"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="GPA CALCULATE TOOL"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnTerm">
       <Properties>
-        <Property name="text" type="java.lang.String" value="D&#xf6;nem Ortalamas&#x131; Hesapla"/>
+        <Property name="text" type="java.lang.String" value="GPA Calculate"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTermActionPerformed"/>
@@ -252,12 +251,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPreviousCredit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xd6;nceki Kredi:"/>
+        <Property name="text" type="java.lang.String" value="Previous Credits:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPreviousAvg">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xd6;nceki Ortalama:"/>
+        <Property name="text" type="java.lang.String" value="Previous CGPA:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPreviousCredit">
@@ -266,7 +265,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnOverall">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Genel Ortalama Hesapla"/>
+        <Property name="text" type="java.lang.String" value="CGPA Calculate"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOverallActionPerformed"/>
