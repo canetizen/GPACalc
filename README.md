@@ -1,2 +1,2 @@
 # GPA-Calculator
-GPA Calculator for university students
+GPA Calculator for university students.
