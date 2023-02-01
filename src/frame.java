@@ -262,22 +262,29 @@ public class frame extends javax.swing.JFrame {
                 return;
             }
             
-            Object[] row = {Integer.toString(index), txtCode.getText().toUpperCase(), Double.parseDouble(txtCredit.getText()), letter};
+            Object[] row = {index, txtCode.getText().toUpperCase(), Double.valueOf(txtCredit.getText()), letter};
             model.addRow(row);
             lblResult.setText("");
             txtCode.setText("");
             txtLetter.setText("");
             txtCredit.setText("");
             index++;
-        } catch(Exception e) {
+        } catch(NumberFormatException e) {
             lblResult.setText("Enter a valid credits.");
         } 
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSelectedActionPerformed
-        int index = tblMain.getSelectedRow();
-        if (index != -1)
-            model.removeRow(index);
+        int indexSelected = tblMain.getSelectedRow();
+        if (indexSelected != -1) {
+            for (int i = indexSelected + 1; i < model.getRowCount(); i++) {
+                int newValue = (int) model.getValueAt(i, 0) - 1;
+                model.setValueAt(newValue, i, 0);
+            }
+            model.removeRow(indexSelected);
+        }
+        index--;
+        
     }//GEN-LAST:event_btnDeleteSelectedActionPerformed
 
     private void btnDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAllActionPerformed
@@ -319,7 +326,7 @@ public class frame extends javax.swing.JFrame {
             double result = (weight + arr[0]) / (arr[1] + credit);
             lblResult.setText("CGPA is: " + String.format("%.2f", result));
             arr = null;
-        } catch(Exception e) {
+        } catch(NumberFormatException e) {
             lblResult.setText("Enter valid values.");
         }
     }//GEN-LAST:event_btnOverallActionPerformed
