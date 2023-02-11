@@ -133,9 +133,9 @@ public class frame extends javax.swing.JFrame {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("GPA CALCULATOR");
+        lblTitle.setText("GPACalc");
         lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btnTerm.setText("GPA Calculate");
@@ -248,7 +248,7 @@ public class frame extends javax.swing.JFrame {
                 .addComponent(btnOverall)
                 .addGap(27, 27, 27)
                 .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
