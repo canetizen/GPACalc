@@ -289,6 +289,7 @@ public class frame extends javax.swing.JFrame {
 
     private void btnDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAllActionPerformed
         model.setRowCount(0);
+        index = 1;
     }//GEN-LAST:event_btnDeleteAllActionPerformed
     private double[] termCalculate() {
         double[] arr = new double[2];
